@@ -1,16 +1,19 @@
 import tuShareController
 
-def init(workbook, auto_cell_format, stockID, today_year, today_month):
-	dataYears = 7
-	dataFieldsFromIncomeApi = ["f_ann_date", "report_type", "total_revenue", "total_cogs"]
-	
+def init(workbook, auto_cell_format, stockID, today_year, today_month, howManyYears):
+	###  接口名称，中文描述
+	dataFields_Income_Api = [["f_ann_date","公布日期"], ["report_type","报表类型"], ["total_revenue","营业收入"], ["total_cogs","营业成本"]]
+
 
 
 	ws_basic = workbook.add_worksheet("基础数据")
 	mytuShare = tuShareController.Tushare()
 	df = mytuShare.getProApi().income(ts_code=stockID, period=str(today_year-3)+'1231', fields='f_ann_date,report_type,total_revenue,revenue,total_cogs')
 
-	print(df)
+	print("1 ===")
+	print(df["f_ann_date"])
+	print("2 ===")
+	print(df.f_ann_date[0])
 
 	ws_basic.set_column(0, 0, 2)
 	
@@ -29,21 +32,14 @@ def init(workbook, auto_cell_format, stockID, today_year, today_month):
 	######### column width ###########
 	ws_basic.set_column(1, 1, 3)
 	ws_basic.set_column(2, 2, 12)
-	ws_basic.set_column(3, 15, 17)
+	ws_basic.set_column(3, 30, 17)
 
 	#################################################
+	for i in range(0,howManyYears):
+		data_Year = today_year-howManyYears+i+1
+		data_Column_ID = chr(ord('D') + i)
+		ws_basic.write(str(data_Column_ID)+"1", str(data_Year), auto_cell_format)
 
-
-	
-
-	#########  year line  ##########
-	ws_basic.write('D1', str(today_year-6), auto_cell_format)
-	ws_basic.write('E1', str(today_year-5), auto_cell_format)
-	ws_basic.write('F1', str(today_year-4), auto_cell_format)
-	ws_basic.write('G1', str(today_year-3), auto_cell_format)
-	ws_basic.write('H1', str(today_year-2), auto_cell_format)
-	ws_basic.write('I1', str(today_year-1), auto_cell_format)
-	ws_basic.write('J1', str(today_year), auto_cell_format)
 
 	#########  header column ####################
 	ws_basic.merge_range('B2:B3', '1', merge_format)
