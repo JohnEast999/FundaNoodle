@@ -49,8 +49,14 @@ class generator():
 		######### generate sheets  ########################
 		introduce_sheet.init(workbook, auto_cell_format, stockID) # 介绍
 		general_sheet.init(workbook, auto_cell_format, stockID)   # 公司概览
-																  # 估值历史
+		pass 														  # 估值历史
 		basic_financial_sheet.init(workbook, auto_cell_format, stockID, today_year, today_month, howManyYears) # 基础数据
 
+
+		
+
+		######################################################
+		######
+		######
 		######   close workbook ########
 		workbook.close()
