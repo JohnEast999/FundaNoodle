@@ -16,7 +16,7 @@ class App(tk.Frame):
 		self.contents_token = tk.StringVar()
 		self.contents_codeID = tk.StringVar()
 		##############################################
-		self.contents_token.set("d7e28c79162bc5a6fd505e5183c7d9fe45ef6fb84c2eef01b8b25bf5")
+		self.contents_token.set("e28c79162bc5a6fd505e5183c7d9fe45ef6fb84c2eef01b8b25bf5")
 		self.entrythingy["textvariable"] = self.contents_token
 
 		self.contents_codeID.set("000001.SZ")

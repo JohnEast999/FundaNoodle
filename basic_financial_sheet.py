@@ -1,6 +1,11 @@
 import tuShareController
 
 def init(workbook, auto_cell_format, stockID, today_year, today_month):
+	dataYears = 7
+	dataFieldsFromIncomeApi = ["f_ann_date", "report_type", "total_revenue", "total_cogs"]
+	
+
+
 	ws_basic = workbook.add_worksheet("基础数据")
 	mytuShare = tuShareController.Tushare()
 	df = mytuShare.getProApi().income(ts_code=stockID, period=str(today_year-3)+'1231', fields='f_ann_date,report_type,total_revenue,revenue,total_cogs')
