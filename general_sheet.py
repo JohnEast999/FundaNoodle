@@ -1,14 +1,13 @@
-import tuShareLogIn as tsInfo
-import customInput as ci
+import tuShareController
 
-
-def init(workbook, auto_cell_format):
+def init(workbook, auto_cell_format, stockID):
 	ws_General = workbook.add_worksheet("公司概览")
+	mytuShare = tuShareController.Tushare()
 	
 	ws_General.set_column(0, 0, 20)
 	ws_General.set_column(1, 1, 100)
 
-	df = tsInfo.pro.stock_company(ts_code=ci.codeNumber, fields='exchange,chairman,manager,province, city, introduction, website, employees, main_business, business_scope')
+	df = mytuShare.getProApi().stock_company(ts_code=stockID, fields='exchange,chairman,manager,province, city, introduction, website, employees, main_business, business_scope')
 	#exchange = df.exchange[0]
 
 	ws_General.write('A1', '法人', auto_cell_format)
