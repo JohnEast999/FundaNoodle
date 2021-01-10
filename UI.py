@@ -23,10 +23,10 @@ class App(tk.Frame):
 		self.contents_token.set("7b0b361e9a9ecc76e360cfb5b9dd014a45a8138263a7b0c5f6cdfeb4")
 		self.entrythingy["textvariable"] = self.contents_token
 
-		self.contents_codeID.set("000001.SZ")
+		self.contents_codeID.set("300062.SZ")
 		self.entrythingy2["textvariable"] = self.contents_codeID
 
-		self.contents_whoManyYears.set("7")
+		self.contents_whoManyYears.set("5")
 		self.entrythingy3["textvariable"] = self.contents_whoManyYears
 
 

@@ -4,6 +4,7 @@ import timeController
 import general_sheet
 import introduce_sheet
 import basic_financial_sheet
+import season_latest_sheet
 
 ##123
 # 介绍
@@ -49,10 +50,11 @@ class generator():
 		######### generate sheets  ########################
 		introduce_sheet.init(workbook, auto_cell_format, stockID) # 介绍
 		general_sheet.init(workbook, auto_cell_format, stockID)   # 公司概览
-		pass 														  # 估值历史
+		# 估值历史 to do
 		basic_financial_sheet.init(workbook, auto_cell_format, stockID, today_year, today_month, howManyYears) # 基础数据
 
-
+		## working on
+		season_latest_sheet.init(workbook, auto_cell_format, stockID)
 		
 
 		######################################################
